@@ -1,3 +1,4 @@
+using Toybox.Lang;
 
 module Hass {
   class Entity {
@@ -81,6 +82,8 @@ module Hass {
         _mType = TYPE_LIGHT;
       } else if (_mId.find("switch.") != null) {
         _mType = TYPE_SWITCH;
+      } else if (_mId.find("button.") != null) {
+        _mType = TYPE_BUTTON;
       } else if (_mId.find("automation.") != null) {
         _mType = TYPE_AUTOMATION;
       } else if (_mId.find("script.") != null) {
@@ -130,7 +133,7 @@ module Hass {
         && newState != STATE_OPEN
         && newState != STATE_UNKNOWN
       ) {
-        throw new InvalidValueException("state must be a valid Entity state");
+        throw new Lang.Exception.InvalidValueException("state must be a valid Entity state");
       }
 
       _mState = newState;

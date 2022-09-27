@@ -322,6 +322,9 @@ module Hass {
         action = Client.ENTITY_ACTION_OPEN_COVER;
         loadingText = "Opening";
       }
+    } else if (entity.getType() == Entity.TYPE_BUTTON) {
+      action = Client.ENTITY_ACTION_PRESS;
+      loadingText = "Pressing";
     } else {
       if (currentState == Entity.STATE_ON) {
         action = Client.ENTITY_ACTION_TURN_OFF;
@@ -339,6 +342,8 @@ module Hass {
       entityType = "light";
     } else if (entity.getType() == Entity.TYPE_SWITCH) {
       entityType = "switch";
+    } else if (entity.getType() == Entity.TYPE_BUTTON) {
+      entityType = "button";
     } else if (entity.getType() == Entity.TYPE_AUTOMATION) {
       entityType = "automation";
     } else if (entity.getType() == Entity.TYPE_SCRIPT) {

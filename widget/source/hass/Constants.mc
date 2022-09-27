@@ -13,6 +13,7 @@ module Hass {
         TYPE_SCENE,
         TYPE_LIGHT,
         TYPE_SWITCH,
+        TYPE_BUTTON,
         TYPE_SCRIPT,
         TYPE_LOCK,
         TYPE_COVER,

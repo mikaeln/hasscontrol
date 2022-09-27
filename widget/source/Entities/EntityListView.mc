@@ -1,6 +1,7 @@
 using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Timer;
+using Toybox.Lang;
 using Hass;
 
 class EntityListController {
@@ -40,7 +41,7 @@ class EntityListController {
 
   function setIndex(index) {
     if (!(index instanceof Number)) {
-      throw new InvalidValueException();
+      throw new Lang.Exception.InvalidValueException();
     }
     _mIndex = index;
   }
@@ -214,6 +215,8 @@ class EntityListView extends Ui.View {
         } else if (state == Hass.STATE_OFF) {
             drawable = WatchUi.loadResource(Rez.Drawables.SwitchOff);
         }
+    } else if (type == Hass.TYPE_BUTTON) {
+        drawable = WatchUi.loadResource(Rez.Drawables.Button);
     } else if (type == Hass.TYPE_INPUT_BOOLEAN) {
         if (state == Hass.STATE_ON) {
             drawable = WatchUi.loadResource(Rez.Drawables.CheckboxOn);

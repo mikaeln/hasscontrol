@@ -12,6 +12,7 @@ module Hass {
         static enum {
             ENTITY_ACTION_TURN_ON,
             ENTITY_ACTION_TURN_OFF,
+            ENTITY_ACTION_PRESS,
             ENTITY_ACTION_LOCK,
             ENTITY_ACTION_UNLOCK,
             ENTITY_ACTION_CLOSE_COVER,
@@ -141,6 +142,9 @@ module Hass {
             } else if (action == Client.ENTITY_ACTION_TURN_OFF) {
                 serviceAction = "turn_off";
                 newState = "off";
+            } else if (action == Client.ENTITY_ACTION_PRESS) {
+                serviceAction = "press";
+                //TODO State not applicable, refactor/renaming necessary!
             } else if (action == Client.ENTITY_ACTION_CLOSE_COVER) {
                 serviceAction = "close_cover";
                 newState = "closed";

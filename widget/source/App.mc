@@ -1,6 +1,7 @@
 using Toybox.Application as App;
 using Toybox.Communications as Comm;
 using Toybox.WatchUi as Ui;
+using Toybox.Lang;
 using Hass;
 
 
@@ -89,7 +90,7 @@ class HassControlApp extends App.AppBase {
         HassControlApp.SCENES_VIEW
       );
     } else {
-      throw new InvalidValueException();
+      throw new Lang.Exception.InvalidValueException();
     }
   }
 
